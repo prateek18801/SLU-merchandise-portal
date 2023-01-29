@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head.ejs") %>
+
+<body>
+    <%- include("../partials/navbar.ejs") %>
+    <div class="container d-flex flex-column align-items-center my-3">
+        <h3 class="mb-4">Claim Your Merchandise</h3>
+        <form action="/claim-merch" method="POST" class="p-3 fw-bold border rounded" style="width: 100%; max-width: 60rem;">
+            <div class="mb-3">
+                <label for="application_id" class="form-label">Application ID</label>
+                <input type="text" class="form-control" id="application_id" name="application_id">
+            </div>
+            <label for="application_type" class="form-label">Application type</label>
+            <div class="mb-3">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="admit" name="status" value="admit" checked>
+                    <label class="form-check-label" for="admit">Admit</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="deposit" name="status" value="deposit">
+                    <label class="form-check-label" for="deposit">Deposit</label>
+                </div>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Full name (First and last name)</label>
+                <input type="text" class="form-control" id="fullname" name="fullname">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="contact" class="form-label">Mobile number</label>
+                <input type="number" class="form-control" id="contact" name="contact" placeholder="(+xxx) xxxxx xxxxx">
+            </div>
+            <div class="mb-3" id="alt_contact">
+                <button type="button" class="btn btn-secondary" onclick="addAltContact()">+ Add alternate contact number</button>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <label for="street-addr1" class="form-label">Flat, House no., Building, Company, Apartment</label>
+                <input type="text" class="form-control" id="street-addr1" name="street-addr1">
+            </div>
+            <div class="mb-3">
+                <label for="street-addr2" class="form-label">Area, Street, Sector, Village</label>
+                <input type="text" class="form-control" id="street-addr2" name="street-addr2">
+            </div>
+            <div class="mb-3">
+                <label for="street-addr2" class="form-label">Landmark</label>
+                <input type="text" class="form-control" id="street-addr2" name="street-addr2" placeholder="Eg. near appolo hospital">
+            </div>
+            <div class="mb-3">
+                <label for="pin" class="form-label">Pin/Zip code</label>
+                <input type="number" class="form-control" id="pin" name="pin" placeholder="6 digits [0-9]">
+            </div>
+            <div class="mb-3">
+                <label for="City" class="form-label">Town/City</label>
+                <input type="text" class="form-control" id="City" name="City">
+            </div>
+            <div class="mb-3">
+                <label for="state" class="form-label">State</label>
+                <input type="text" class="form-control" id="state" name="state">
+            </div>
+            <div class="mb-3">
+                <label for="Country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="Country" name="Country">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+<script>
+    function addAltContact() {
+        document.getElementById('alt_contact').innerHTML = `<label for="alt_contact" class="form-label">Alternate contact</label><input type="number" class="form-control" id="alt_contact" name="alt_contact" placeholder="(+xxx) xxxxx xxxxx">`;
+    }
+</script>
+
+</html>
