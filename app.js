@@ -1,6 +1,7 @@
 const express = require('express');
 
 const userRouter = require('./routes/user');
+require('./utils/db').connect();
 
 const app = express();
 
