@@ -1,3 +1,5 @@
+const Order = require('../model/order');
+
 // PAGE
 exports.getLandingPage = (req, res, next) => {
     return res.status(200).render('user/landing-page', {
@@ -12,6 +14,15 @@ exports.getClaimForm = (req, res, next) => {
 }
 
 // API
-exports.postClaimForm = (req, res, next) => {
-    console.log(req.body);
+exports.postClaimForm = async (req, res, next) => {
+    const data = { ...req.body };
+    try {
+        const saved = await new Order(data).save();
+        return res.status(201).json({
+            ok: true,
+            message: 'created'
+        });
+    } catch (err) {
+        next(err);
+    }
 }
