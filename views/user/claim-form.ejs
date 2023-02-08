@@ -34,7 +34,7 @@
             </div>
             <div class="mb-3">
                 <label for="cf05-01" class="form-label">Mobile number<span class="text-danger">*</span></label>
-                <input type="number" class="form-control" id="cf05-01" name="contact_1" placeholder="(+xxx) xxxxx xxxxx" required>
+                <input type="number" class="form-control" id="cf05-01" name="contact_1" placeholder="xxxxx xxxxx" required>
             </div>
             <div class="mb-3" id="alt_contact">
                 <button type="button" class="btn btn-secondary" onclick="addAltContact()">+ Add alternate contact number</button>
@@ -74,7 +74,7 @@
 </body>
 <script>
     function addAltContact() {
-        document.getElementById('alt_contact').innerHTML = `<label for="cf05-02" class="form-label">Alternate contact</label><input type="number" class="form-control" id="cf05-02" name="contact_2" placeholder="(+xxx) xxxxx xxxxx">`;
+        document.getElementById('alt_contact').innerHTML = `<label for="cf05-02" class="form-label">Alternate contact</label><input type="number" class="form-control" id="cf05-02" name="contact_2" placeholder="xxxxx xxxxx">`;
     }
 </script>
 
