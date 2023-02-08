@@ -1,7 +1,9 @@
 const router = require('express').Router();
 
-const controller = require('../controllers/admin');
+const adminController = require('../controllers/admin');
 
-router.get('/dashboard', controller.getDashboard);
+router.get('/dashboard', adminController.getDashboard);
+
+router.get('/download-orders', adminController.downloadOrders)
 
 module.exports = router;
