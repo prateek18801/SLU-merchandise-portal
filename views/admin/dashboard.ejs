@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head.ejs") %>
+
+<body>
+    <%- include("../partials/navbar.ejs") %>
+    <div class="container">
+        <div class="border rounded pt-3 px-3 my-3">
+            <form class="row g-3" action="/admin/dashboard" method="GET">
+                <h3 class="col-auto">Filters: </h3>
+                <div class="col-auto">
+                    <input type="text" class="form-control" name="application_id" placeholder="Appl. ID">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Search</button>
+                </div>
+                <div class="col-auto">
+                    <label for="start-date" class="col-form-label">From: </label>
+                </div>
+                <div class="col-auto">
+                    <input type="date" class="form-control" name="start_date" id="start-date">
+                </div>
+                <div class="col-auto">
+                    <label for="end-date" class="col-form-label">To: </label>
+                </div>
+                <div class="col-auto">
+                    <input type="date" class="form-control" name="end_date" id="end-date">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Apply</button>
+                </div>
+            </form>
+        </div>
+        <div class="border rounded mb-3 overflow-auto" style="height: 70vh;">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Appl. ID</th>
+                        <th scope="col">Appl. Type</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact 1</th>
+                        <th scope="col">Contact 2</th>
+                        <th scope="col">Street 1</th>
+                        <th scope="col">Street 2</th>
+                        <th scope="col">Landmark</th>
+                        <th scope="col">Pin Code</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% orders.forEach((order, i) => { %>
+                        <tr>
+                            <th scope="row"><%= i+1 %></th>
+                            <td><%= order.application_id %></td>
+                            <td><%= order.application_type %></td>
+                            <td><%= order.full_name %></td>
+                            <td><%= order.email %></td>
+                            <td><%= order.contact_1 %></td>
+                            <td><%= order.contact_2 %></td>
+                            <td><%= order.street_1 %></td>
+                            <td><%= order.street_2 %></td>
+                            <td><%= order.landmark %></td>
+                            <td><%= order.pin_code %></td>
+                            <td><%= order.city %></td>
+                            <td><%= order.state %></td>
+                            <td><%= order.country %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
