@@ -3,13 +3,15 @@ const Order = require('../model/order');
 // PAGE
 exports.getLandingPage = (req, res, next) => {
     return res.status(200).render('user/landing-page', {
-        home_page: true
+        home_page: true,
+        admin_page: false
     });
 }
 
 exports.getClaimForm = (req, res, next) => {
     return res.status(200).render('user/claim-form', {
-        home_page: false
+        home_page: false,
+        admin_page: false
     });
 }
 
