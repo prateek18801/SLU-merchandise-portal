@@ -86,7 +86,10 @@
 <script>
     async function downloadOrders() {
         const urlParams = new URLSearchParams(window.location.search);
-        if (!(urlParams.get('application_id').length || (urlParams.get('start_date').length && urlParams.get('end_date').length)))
+        const application_id = urlParams.get('application_id');
+        const start_date = urlParams.get('start_date');
+        const end_date = urlParams.get('end_date');
+        if (!(application_id && application_id.length || (start_date && start_date.length && end_date && end_date.length)))
             return alert('Select valid range to download');
         window.location.href = `/admin/download-orders${window.location.search}`;
     }
