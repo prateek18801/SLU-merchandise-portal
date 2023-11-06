@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-const controller = require('../controllers/user');
+const userController = require('../controllers/user');
 
-router.get('/', controller.getLandingPage);
+router.get('/', userController.getLandingPage);
 
-router.get('/claim-merch', controller.getClaimForm);
+router.get('/claim-merch', userController.getClaimForm);
 
-router.post('/claim-merch', controller.postClaimForm);
+router.post('/claim-merch', userController.postClaimForm);
 
 module.exports = router;
